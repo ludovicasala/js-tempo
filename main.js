@@ -36,8 +36,19 @@ const btnStop = document.getElementById("stop-btn");
 const btnReset = document.getElementById("reset-btn");
 
 //Gestisco gli eventi
+
+let timerPlay = null;
+let secondi = 0;
+
 btnPlay.addEventListener("click", function () {
-	console.log("Premuto Play!");
+
+	if (!timerPlay) {
+		timerPlay = setInterval(function () {
+			secondi++;
+			tempoAttuale.textContent = secondi;
+			console.log(`Tempo trascorso: ${secondi}`);
+		}, 100);
+	}
 });
 
 btnStop.addEventListener("click", function () {
