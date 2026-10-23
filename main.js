@@ -2,6 +2,19 @@
 
 // Il <div> della pagina che funge da progress-bar
 const progressBar = document.getElementById("progress");
+let ogniTot = 1000;
+let progressoCrescita = 0;
+
+const timer = setInterval(gestisciTempo, ogniTot);
+
+function gestisciTempo() {
+	if (progressoCrescita < 100) {
+		progressoCrescita++;
+	} else {
+	}
+
+	console.log(progressoCrescita);
+}
 
 // Il titolo di questa sezione (Loading...)
 const title = document.getElementById("loading-title");
