@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: sans-serif;
+    padding: 0;
+}
+
+.container {
+    background-color: tan;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+#progress {
+    background-color: crimson;
+    height: 1rem;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 1rem;
+}
