@@ -38,20 +38,28 @@ const btnReset = document.getElementById("reset-btn");
 //Gestisco gli eventi
 
 let timerPlay = null;
-let secondi = 0;
+let tempoTrascorso;
 
 btnPlay.addEventListener("click", function () {
 
-	if (!timerPlay) {
-		timerPlay = setInterval(function () {
-			secondi++;
-			tempoAttuale.textContent = secondi;
-			console.log(`Tempo trascorso: ${secondi}`);
-		}, 100);
-	}
+	tempoTrascorso = setInterval(function () {
+		document.getElementById("cronometro").innerHTML = timerPlay;
+		timerPlay++;
+	}, 100);
+
+	btnPlay.disabled = true;
+	btnStop.disabled = false;
+
+	console.log(`Tempo trascorso: ${tempoTrascorso}`);
 });
 
 btnStop.addEventListener("click", function () {
+
+	clearInterval(tempoTrascorso);
+
+	btnPlay.disabled = false;
+	btnStop.disabled = true;
+
 	console.log("Premuto Stop!");
 });
 
