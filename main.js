@@ -39,6 +39,7 @@ const btnReset = document.getElementById("reset-btn");
 
 let timerPlay = null;
 let tempoTrascorso;
+let contatore = 0;
 
 btnPlay.addEventListener("click", function () {
 
@@ -49,6 +50,7 @@ btnPlay.addEventListener("click", function () {
 
 	btnPlay.disabled = true;
 	btnStop.disabled = false;
+	btnReset.disabled = true;
 
 	console.log(`Tempo trascorso: ${tempoTrascorso}`);
 });
@@ -59,10 +61,21 @@ btnStop.addEventListener("click", function () {
 
 	btnPlay.disabled = false;
 	btnStop.disabled = true;
+	btnReset.disabled = false;
 
-	console.log("Premuto Stop!");
+	console.log(`Premuto Stop!`);
 });
 
 btnReset.addEventListener("click", function () {
-	console.log("Premuto Reset!");
+	clearInterval(tempoTrascorso);
+	tempoTrascorso = null;
+
+	contatore = 0;
+	document.getElementById("cronometro").innerHTML = contatore;
+
+	btnPlay.disabled = false;
+	btnStop.disabled = true;
+	btnReset.disabled = false;
+
+	console.log(`Premuto Reset!`);
 });
