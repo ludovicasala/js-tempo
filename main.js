@@ -2,18 +2,22 @@
 
 // Il <div> della pagina che funge da progress-bar
 const progressBar = document.getElementById("progress");
-let ogniTot = 1000;
+let ogniTot = 100;
 let progressoCrescita = 0;
+
+progressBar.style.width = progressoCrescita + "%";
 
 const timer = setInterval(gestisciTempo, ogniTot);
 
 function gestisciTempo() {
 	if (progressoCrescita < 100) {
 		progressoCrescita++;
+		progressBar.style.width = progressoCrescita + "%";
 	} else {
+		clearInterval(timer);
 	}
 
-	console.log(progressoCrescita);
+	console.log(progressoCrescita + "%");
 }
 
 // Il titolo di questa sezione (Loading...)
