@@ -39,7 +39,6 @@ const btnReset = document.getElementById("reset-btn");
 
 let timerPlay = null;
 let tempoTrascorso;
-let contatore = 0;
 
 btnPlay.addEventListener("click", function () {
 
@@ -67,15 +66,18 @@ btnStop.addEventListener("click", function () {
 });
 
 btnReset.addEventListener("click", function () {
-	clearInterval(tempoTrascorso);
-	tempoTrascorso = null;
 
-	contatore = 0;
-	document.getElementById("cronometro").innerHTML = contatore;
+	clearInterval(tempoTrascorso);
+
+	timerPlay = 0;
+	tempoTrascorso = setInterval(function () {
+		document.getElementById("cronometro").innerHTML = timerPlay;
+		timerPlay++;
+	}, 100);
 
 	btnPlay.disabled = false;
-	btnStop.disabled = true;
-	btnReset.disabled = false;
+	btnStop.disabled = false;
+	btnReset.disabled = true;
 
 	console.log(`Premuto Reset!`);
 });
